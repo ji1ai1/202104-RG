@@ -1,4 +1,23 @@
-import datetime
+# python 3.9.2
+# python套件 lightgbm 3.1.1
+# python套件 numpy 1.20.1
+# python套件 pandas 1.2.2
+#
+# 輸入：
+#	trainset/person.csv
+#	trainset/person_cv.csv
+#	trainset/person_job_hist.csv
+#	trainset/person_pro_cert.csv
+#	trainset/person_project.csv
+#	trainset/recruit.csv
+#	trainset/recruit_folder.csv
+#	testset/recruit_folder.csv
+#
+# 輸出：
+# 	result.csv
+#
+# 0.8516
+#
 import numpy
 import pandas
 import random

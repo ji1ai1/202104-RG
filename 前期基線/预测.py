@@ -32,7 +32,7 @@ import lightgbm
 意向表["自荐信字数"] = 意向表.自荐信.str.len()
 工作经历表 = pandas.read_csv("trainset/person_job_hist.csv", header=0, names=["求职者编号", "岗位类别", "单位所在地", "单位所属行业", "主要业绩"])
 工作经历表["主要业绩字数"] = 工作经历表.主要业绩.str.len()
-专业證書表 = pandas.read_csv("trainset/person_pro_cert.csv", header=0, names=["求职者编号", "专业證書名称", "備註"])
+专业证书表 = pandas.read_csv("trainset/person_pro_cert.csv", header=0, names=["求职者编号", "专业证书名称", "备注"])
 项目经验表 = pandas.read_csv("trainset/person_project.csv", header=0, names=["求职者编号", "项目名称", "项目说明", "职责说明", "关键技术"])
 岗位表 = pandas.read_csv("trainset/recruit.csv", header=0, names=["岗位编号", "招聘对象代码", "招聘对象", "招聘职位", "对应聘者的专业要求", "岗位最低学历", "岗位工作地点", "岗位工作年限", "具体要求"])
 岗位表.招聘对象代码 = 岗位表.招聘对象代码.fillna(-1).astype("category")

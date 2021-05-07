@@ -106,6 +106,7 @@ for 甲 in range(折数):
 预测表["预测"] = 0
 预测表.loc[:int(0.15 * len(预测表)), ["预测"]] = 1
 
+
 提交表 = 预测表.loc[:, ["岗位编号", "求职者编号", "预测"]]
 提交表.columns = ["RECRUIT_ID", "PERSON_ID", "LABEL"]
 提交表.to_csv("result.csv", index=False)

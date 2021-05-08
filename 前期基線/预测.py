@@ -43,8 +43,8 @@ import lightgbm
 
 工作经历数据表 = 工作经历表.groupby("求职者编号").aggregate({"岗位类别": "count", "主要业绩字数": ["mean", "sum"]}).reset_index()
 工作经历数据表.columns = ["求职者编号", "工作经历数", "平均主要业绩字数", "总主要业绩字数"]
-项目经验資料表 = 项目经验表.groupby("求职者编号").aggregate({"项目名称": "count"}).reset_index()
-项目经验資料表.columns = ["求职者编号", "项目经验数"]
+项目经验数据表 = 项目经验表.groupby("求职者编号").aggregate({"项目名称": "count"}).reset_index()
+项目经验数据表.columns = ["求职者编号", "项目经验数"]
 
 训练表 = pandas.read_csv("trainset/recruit_folder.csv", header=0, names=["岗位编号", "求职者编号", "标签"])
 测试表 = pandas.read_csv("testset/recruit_folder.csv", header=0, names=["岗位编号", "求职者编号", "标签"])
@@ -65,7 +65,7 @@ def 取得数据表(某表, 某特征表):
 	某表 = 某表.merge(求职者表, on="求职者编号", how="left")
 	某表 = 某表.merge(意向表, on="求职者编号", how="left")
 	某表 = 某表.merge(岗位表, on="岗位编号", how="left")
-	某表 = 某表.merge(项目经验資料表, on="求职者编号", how="left")
+	某表 = 某表.merge(项目经验数据表, on="求职者编号", how="left")
 	某表 = 某表.merge(工作经历数据表, on="求职者编号", how="left")
 	某表 = 某表.merge(求职者数据表, on="求职者编号", how="left")
 	某表 = 某表.merge(岗位数据表, on="岗位编号", how="left")

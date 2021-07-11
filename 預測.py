@@ -148,11 +148,6 @@ for 癸 in range(0, 32):
 預測表 = 測試資料表.loc[:, ["崗位編號", "求職者編號"]]
 預測表["預測打分"] = numpy.mean([輕模型[子].predict(測試資料表.iloc[:, 2:]) for 子 in range(len(輕模型))], axis=0)
 
-花小姐預測表 = pandas.read_csv("hxj.csv", header=0, names=["求職者編號", "崗位編號", "花小姐預測打分"])
-預測表 = 預測表.merge(花小姐預測表, on=["崗位編號", "求職者編號"])
-預測表["預測打分"] = 0.7 * 預測表.預測打分 + 0.3 * 預測表.花小姐預測打分
-
-
 預測表 = 預測表.sort_values("預測打分", ascending=False, ignore_index=True)
 預測表["預測"] = 0
 預測表.loc[:int(0.075 * len(預測表)), ["預測"]] = 1

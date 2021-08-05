@@ -97,7 +97,8 @@ for 甲 in range(折数):
 	训练数据表 = pandas.concat([训练数据表, 甲数据表], ignore_index=True)
 
 轻模型 = lightgbm.train(train_set=lightgbm.Dataset(训练数据表.iloc[:, 3:], label=训练数据表.标签)
-	, num_boost_round=500, params={"objective": "binary", "learning_rate": 0.03, "max_depth": 6, "num_leaves": 32, "verbose": -1, "bagging_fraction": 0.8, "feature_fraction": 0.8})
+	, num_boost_round=500, params={"objective": "binary", "learning_rate": 0.03, "max_depth": 6, "num_leaves": 32, "verbose": -1, "bagging_fraction": 0.8, "feature_fraction": 0.8}
+)
 
 测试数据表 = 取得数据表(测试表, 训练表)
 预测表 = 测试数据表.loc[:, ["岗位编号", "求职者编号"]]

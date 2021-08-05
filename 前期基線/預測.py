@@ -99,7 +99,8 @@ for 甲 in range(折數):
 	訓練資料表 = pandas.concat([訓練資料表, 甲資料表], ignore_index=True)
 
 輕模型 = lightgbm.train(train_set=lightgbm.Dataset(訓練資料表.iloc[:, 3:], label=訓練資料表.標籤)
-	, num_boost_round=500, params={"objective": "binary", "learning_rate": 0.03, "max_depth": 6, "num_leaves": 32, "verbose": -1, "bagging_fraction": 0.8, "feature_fraction": 0.8})
+	, num_boost_round=500, params={"objective": "binary", "learning_rate": 0.03, "max_depth": 6, "num_leaves": 32, "verbose": -1, "bagging_fraction": 0.8, "feature_fraction": 0.8}
+)
 
 測試資料表 = 取得資料表(測試表, 訓練表)
 預測表 = 測試資料表.loc[:, ["崗位編號", "求職者編號"]]

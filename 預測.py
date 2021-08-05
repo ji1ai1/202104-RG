@@ -141,7 +141,7 @@ for 癸 in range(0, 32):
 	輕模型 += [lightgbm.train(
 		train_set=lightgbm.Dataset(癸訓練資料表.iloc[:, 2:], label=癸訓練資料表.標籤)
 		, num_boost_round=512 + (癸 % 4) * 128, params={"objective": "binary", "learning_rate": 0.03, "max_depth": 6, "num_leaves": 32, "verbose": -1, "bagging_fraction": 0.7, "feature_fraction": 0.7}
-)]
+	)]
 
 
 測試資料表 = 取得資料表(測試表.loc[測試表.型別 == 0].reset_index(drop=True), 訓練表.copy())
